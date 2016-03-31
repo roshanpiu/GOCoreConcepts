@@ -16,6 +16,7 @@ func reader(ch chan int)  {
         select {
             case i := <- ch: //if something comes from the the channel this case will print it otherwise carry on
                 fmt.Printf("%d\n", i)
+                
             case <-t.C  :
                 ch = nil //when this case heppens after 3 seconds the goroutine will stop and wait
         }
